@@ -1,19 +1,20 @@
 /**
- * ChessBoardTest.java
+ * PaintingTest.java
  *
- * ©2017 
+ * ©2017 Zebrilus
  */
 
 package javaplayground;
 
+import java.awt.BorderLayout;
 import java.awt.Graphics;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-public class ChessBoardTest extends JComponent {
+public class PaintingTest extends JComponent {
 
-    public ChessBoardTest() {
+    public PaintingTest() {
         // TODO Auto-generated constructor stub
     }
     
@@ -25,7 +26,8 @@ public class ChessBoardTest extends JComponent {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Chessboard Test");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        frame.setLayout(new BorderLayout());        
+        frame.add(new PaintingTest(), BorderLayout.CENTER);
     }
     
 }
