@@ -14,10 +14,27 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public final class PaintingTest extends JComponent {
-
-    public PaintingTest() {
-        
+          
+    
+    private int oldWidth, oldHeight = -1;
+    private int sqWidth;
+    
+    
+    public PaintingTest() {        
         // TODO Auto-generated constructor stub
+    }
+    
+    /** 
+     * Precalculate for drawing
+     */
+    private void calculate() {
+        int w = getWidth();
+        int h = getHeight();
+        if (oldWidth != w || oldHeight != h) {
+            oldWidth = w;
+            oldHeight = h;
+            
+        }
     }
     
     
@@ -26,27 +43,12 @@ public final class PaintingTest extends JComponent {
         // TODO Auto-generated method stub
         super.setBounds(x, y, width, height);
     }
-    
-    @Override
-    public void reshape(final int x, final int y, final int w, final int h) {
-        int oldWidth = getWidth();
-        int oldHeight = getHeight();
-        super.reshape(x, y, w, h);
-        if (oldWidth != w || oldHeight != h) {
-            recalculate();
-        }        
-    }
-    
-    /** 
-     * Calculate all the Square Positions
-     */
-    private void recalculate() {
-        
-    }
+       
     
     @Override
     protected void paintComponent(Graphics g) {
-        g.drawLine(0, 0, getWidth(), getHeight());
+        g.drawLine(0, 0, getWidth()/2, getHeight()/2);
+        //g.fillRoundRect(x, y, width/2, height/2, arcWidth, arcHeight);
     }
 
     public static void main(String[] args) {
